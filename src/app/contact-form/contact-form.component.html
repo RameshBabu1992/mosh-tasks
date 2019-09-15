@@ -1,0 +1,24 @@
+<form #demoForm="ngForm" (ngSubmit)="submit(demoForm)">
+  <div class="form-group">
+    <label for="firstname">Firstname</label>
+    <input required minlength="5" maxlength="10" pattern="banana" 
+    (change)="log(firstname)" 
+    ngModel name="firstname" #firstname=ngModel 
+    type="text" id="firstname" class="form-control"  />
+    <div class="alert alert-danger" *ngIf="firstname.touched && firstname.invalid" >
+      <div *ngIf="firstname.errors.required" >Firstname is required</div>
+      <div *ngIf="firstname.errors.pattern" >Firstname does not match the pattern</div>
+      <div *ngIf="firstname.errors.minlength" >Firstname should be of minimum {{ firstname.errors.minlength.requiredLength }} characters</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="comments">Comments</label>
+    <textarea ngModel name="comments" #comments=ngModel id="comments" rows="5" cols="5" class="form-control" ></textarea>
+  </div>
+  <div class="checkbox">
+    <label for="checkbox"><input type="checkbox" id="isSubscribed"  ngModel name="isSubscribed" #isSubscribed=ngModel />
+    Click to subscribe</label>
+  </div>
+  <p>{{ demoForm.value | json }}</p>
+  <button [disabled]="demoForm.invalid" class="btn btn-primary">Submit</button>
+</form>

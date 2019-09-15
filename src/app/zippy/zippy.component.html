@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-header" (click)="isClicked=!isClicked">
+    {{ title }}
+    <i class="fas float-right" [class.fa-caret-up]="isClicked" [class.fa-caret-down]="!isClicked"></i>
+  </div>
+  <div class="card-body" *ngIf="isClicked">
+    <ng-content>
+    </ng-content>
+  </div>
+</div>

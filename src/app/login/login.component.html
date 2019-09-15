@@ -1,0 +1,20 @@
+<div class="container">
+  <form #loginForm="ngForm">
+    <div class="form-group">
+      {{ diagnostic }}<br>
+      <label for="username">Username</label>
+      <input type="text" class="form-control" required [(ngModel)]="model.username" name="name" #name="ngModel">
+      <br>
+      <div class="alert alert-danger" [hidden]="name.valid || name.pristine">Username is not valid</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" required [(ngModel)]="model.password" name="password" #password="ngModel">
+      <br>
+      <div class="alert alert-danger" [hidden]="password.valid || password.pristine">Password is not valid</div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="loginForm.form.invalid" (click)="login()" >Signin</button>
+    
+    <button class="btn">{{ match }}</button>
+  </form>
+</div>

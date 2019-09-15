@@ -1,0 +1,73 @@
+<div class="container">
+  <app-panel>
+    <ng-container class="heading">New Heading
+    </ng-container>
+    <ng-container class="body">
+      <h2>Body</h2>
+      <p>Custom Content via ng-content</p>
+    </ng-container>
+    <ng-container class="footer">
+      <app-like [didLike]="dbData.didLike" (counter)="counter($event)"></app-like>
+      {{ dbData.counter }}
+    </ng-container>
+  </app-panel>
+</div>
+
+  <br>
+  <code>Assignment 3: Zippy Content</code>
+<div class="container ngif-example-with-template-variables-and-ng-template-tag">
+  <div *ngIf="courses.length ;then coursesList else nocourses"></div>
+  <ng-template #coursesList>
+    Courses : {{ courses }}
+  </ng-template>
+  <ng-template #nocourses>
+    No courses present
+  </ng-template>
+</div>
+  <br>
+  <code>Assignment 4: Zippy Content</code>
+<div class="container">
+  <ul class="nav nav-pills">
+    <li><a href="#" class="nav-link" [class.active]="viewMode=='map'" (click)="viewMode='map'">Map View</a></li>
+    <li><a href="#" class="nav-link" [class.active]="viewMode=='list'" (click)="viewMode='list'">List View</a></li>
+  </ul>
+  <div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">
+      Map Content View
+    </div>
+    <div *ngSwitchCase="'list'" class="">
+      List Content View
+    </div>
+    <div *ngSwitchDefault>
+      Otherwise
+    </div>
+  </div>
+</div>
+<div class="container">
+  <br>
+  <code>Assignment 5: Zippy Content</code>
+  <zippy title="Shipping Details">Shipping Details Content and address</zippy>
+  <zippy title="Billing Details">Billing Details Content</zippy>
+</div>
+<br>
+<hr>
+<div class="container">
+  <p>Assignment 6: Course Form</p>
+  <course-form></course-form>
+</div>
+<hr>
+<div class="container">
+  <contact-form></contact-form>
+</div>
+<hr>
+<div class="container">
+  <app-sign-up></app-sign-up>
+</div>
+<hr>
+<div class="container">
+  <app-form-array></app-form-array>
+</div>
+<hr>
+<div class="container">
+  <app-assignment7></app-assignment7>
+</div>
